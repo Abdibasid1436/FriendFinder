@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
     res.json(friendMatch);
   });
-}
+
 app.post("/api/friends", function(req, res) {
   var bestMatch = {
     name: "",
@@ -32,9 +32,18 @@ app.post("/api/friends", function(req, res) {
     for(var j = 0; j < friends[j]; j++) {
       totalDifference =+ math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
 
-      if (totalDifference <=bestMatch.friendDifference) {
-        
+      if (totalDifference <= bestMatch.friendDifference) {
+
+        bestMatch.name = friends[i].name;
+        bestMatch.photo = friends[i].photo;
+        bestMatch.friendDifference = totalDifference;
       }
     }
   }
-})
+    friends.push(userData);
+
+    //return a JSON with the user's bestMatch.
+    res.json(bestMatch);
+});
+
+}

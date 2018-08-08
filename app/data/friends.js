@@ -1,4 +1,4 @@
-var friendMatch = [
+var friends = [
     {
       name: "Kirk Cousins",
       photo: "https://i.kinja-img.com/gawker-media/image/upload/s--16dwrE25--/c_scale,f_auto,fl_progressive,q_80,w_800/cbb7wo8dgo3sygugdl7k.jpg ",
@@ -19,5 +19,5 @@ var friendMatch = [
   
   ];
   
-  module.exports = friendMatch;
+  module.exports = friends;
   
